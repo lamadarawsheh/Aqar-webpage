@@ -2,7 +2,7 @@ import React from 'react';
 
 const Projects = () => {
     return (
-        <section className="py-[20px] bg-white" id="projects">
+        <section className="py-[20px] bg-transparent" id="projects">
             <div className="custom-container">
                 <h2 className="section-title">مشاريعنا</h2>
                 <div className="flex justify-start items-center py-[20px]">

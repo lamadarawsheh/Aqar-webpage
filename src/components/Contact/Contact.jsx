@@ -55,7 +55,7 @@ const Contact = () => {
     };
 
     return (
-        <section className="py-[20px] pb-[60px] bg-white" id="contact">
+        <section className="py-[20px] pb-[60px] bg-transparent" id="contact">
             <div className="custom-container">
                 <h2 className="section-title">تواصل معنا</h2>
 

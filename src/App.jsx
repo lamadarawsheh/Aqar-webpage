@@ -17,9 +17,6 @@ const App = () => {
                 className="min-h-[600px] bg-cover bg-center bg-no-repeat bg-fixed relative"
                 style={{ backgroundImage: 'url("/design-img.jpeg")' }}
             >
-
-                <div className="absolute inset-0 bg-white/80 z-0"></div>
-
                 <div className="relative z-10 py-10">
                     <Routes>
                         <Route path="/" element={<Navigate to="/about" replace />} />

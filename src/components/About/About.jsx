@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
     return (
-        <section className="pt-[40px] pb-[20px] bg-white" id="about">
+        <section className="pt-[40px] pb-[20px] bg-transparent" id="about">
             <div className="custom-container">
                 <h2 className="section-title">عن تقنية تطبيقات المستقبل</h2>
                 <div className="[text-align:justify] text-[#4a4a4a] text-[1.1rem] max-w-[900px] mr-0 leading-[1.8]" style={{ textJustify: 'inter-word' }}>
