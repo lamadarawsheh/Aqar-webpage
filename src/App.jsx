@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -12,9 +13,22 @@ const App = () => {
         <div dir="rtl" className="font-sans bg-white text-darkText min-h-screen">
             <Header />
             <Hero />
-            <About />
-            <Projects />
-            <Contact />
+            <main
+                className="min-h-[600px] bg-cover bg-center bg-no-repeat bg-fixed relative"
+                style={{ backgroundImage: 'url("/design-img.jpeg")' }}
+            >
+
+                <div className="absolute inset-0 bg-white/80 z-0"></div>
+
+                <div className="relative z-10 py-10">
+                    <Routes>
+                        <Route path="/" element={<Navigate to="/about" replace />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/contact" element={<Contact />} />
+                    </Routes>
+                </div>
+            </main>
             <Footer />
         </div>
     );
