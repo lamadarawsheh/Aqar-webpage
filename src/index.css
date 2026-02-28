@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components {
+
+    /* Creating our reusable custom container and section title based on the original design */
+    .custom-container {
+        @apply w-full max-w-[1100px] mx-auto px-5;
+    }
+
+    .section-title {
+        @apply text-primary text-[1.8rem] font-bold mb-[30px] text-right;
+    }
+}
