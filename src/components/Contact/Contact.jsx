@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useForm } from 'react-hook-form';
+import useFadeIn from '../../hooks/useFadeIn';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
@@ -15,6 +16,8 @@ const schema = z.object({
 
 const Contact = () => {
     const [status, setStatus] = useState('');
+    const { ref: titleRef, isVisible: titleVisible } = useFadeIn();
+    const { ref: formRef, isVisible: formVisible } = useFadeIn();
 
     const {
         register,
@@ -57,12 +60,17 @@ const Contact = () => {
     return (
         <section className="py-[20px] pb-[60px] bg-transparent" id="contact">
             <div className="custom-container">
-                <h2 className="section-title">تواصل معنا</h2>
+                <h2
+                    ref={titleRef}
+                    className={`section-title fade-hidden fade-right ${titleVisible ? 'fade-visible' : ''}`}
+                >
+                    تواصل معنا
+                </h2>
 
-                <div className="max-w-[900px] mr-0">
+                <div ref={formRef} className="max-w-[900px] mr-0">
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-[30px] mt-[20px]">
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+                        <div className={`grid grid-cols-1 md:grid-cols-2 gap-[30px] fade-hidden fade-up fade-delay-1 ${formVisible ? 'fade-visible' : ''}`}>
                             <div>
                                 <fieldset className={`border ${errors.user_name ? 'border-[#c62828]' : 'border-[#b5b5b5]'} rounded-[4px] px-[15px] m-0 flex items-center transition-colors duration-300 focus-within:border-primary focus-within:border-[1.5px]`}>
                                     <legend className={`px-[10px] text-[0.95rem] font-bold mr-[15px] ${errors.user_name ? 'text-[#c62828]' : 'text-primary'}`}>الاسم</legend>
@@ -90,7 +98,7 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div>
+                        <div className={`fade-hidden fade-up fade-delay-3 ${formVisible ? 'fade-visible' : ''}`}>
                             <fieldset className={`border ${errors.message ? 'border-[#c62828]' : 'border-[#b5b5b5]'} rounded-[4px] px-[15px] m-0 flex items-start transition-colors duration-300 focus-within:border-primary focus-within:border-[1.5px]`}>
                                 <legend className={`px-[10px] text-[0.95rem] font-bold mr-[15px] ${errors.message ? 'text-[#c62828]' : 'text-primary'}`}>الرسالة</legend>
                                 <textarea
@@ -103,7 +111,7 @@ const Contact = () => {
                             {errors.message && <span className="text-[#c62828] text-[0.85rem] mt-[5px] block font-semibold">{errors.message.message}</span>}
                         </div>
 
-                        <div className="flex justify-center mt-[15px]">
+                        <div className={`flex justify-center mt-[15px] fade-hidden fade-up fade-delay-5 ${formVisible ? 'fade-visible' : ''}`}>
                             <button
                                 type="submit"
                                 disabled={isSubmitting || status === 'sending'}

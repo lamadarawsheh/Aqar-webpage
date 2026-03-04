@@ -11,8 +11,6 @@
 }
 
 @layer components {
-
-    /* Creating our reusable custom container and section title based on the original design */
     .custom-container {
         @apply w-full max-w-[1100px] mx-auto px-5;
     }

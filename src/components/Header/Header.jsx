@@ -1,11 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import useFadeIn from '../../hooks/useFadeIn';
 
 const Header = () => {
+    const { ref: navRef, isVisible: navVisible } = useFadeIn({ threshold: 0.1 });
+
     return (
         <header className="absolute top-0 left-0 right-0 w-full z-[100] py-[30px]" id="home">
             <div className="custom-container flex justify-between items-center">
-                <nav className="flex">
+                <nav
+                    ref={navRef}
+                    className={`flex fade-hidden fade-down fade-fast ${navVisible ? 'fade-visible' : ''}`}
+                >
                     <ul className="flex list-none gap-[40px]">
                         <li>
                             <NavLink to="/" className={({ isActive }) => `no-underline ${isActive ? 'text-[#aae0e0]' : 'text-white'} text-[1.1rem] font-semibold transition-colors duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)] hover:text-[#aae0e0]`}>
